@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sparkles Bangles — Handcrafted Bangles</title>
+  <meta name="description" content="Sparkles Bangles — Handcrafted, ethically-made bangles. Limited collections ready to adorn your wrist." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --gold:#ffd700;
+      --dark:#0b0b0b;
+      --muted:#bfc1c7;
+      --accent:#b8860b;
+      --glass: rgba(255,255,255,0.04);
+      --max-width:1200px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;background: linear-gradient(180deg,#050505 0%, #0b0b0b 100%);color:#f7f7f7;line-height:1.6;-webkit-font-smoothing:antialiased;}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:var(--max-width);margin:0 auto;padding:0 20px}
+    header{position:sticky;top:0;z-index:60;backdrop-filter: blur(6px);background: linear-gradient(90deg, rgba(255,215,0,0.08), rgba(0,0,0,0.35));border-bottom:1px solid rgba(255,215,0,0.06);}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{font-family:'Great Vibes',cursive;font-size:28px;color:var(--gold);text-shadow:0 0 8px rgba(255,215,0,0.08)}
+    .menu{display:flex;gap:14px;align-items:center}
+    .menu a{font-weight:600;padding:8px 10px;border-radius:8px;transition:all .18s}
+    .menu a:hover{background:rgba(255,215,0,0.06);color:var(--gold)}
+    .hero{min-height:68vh;display:grid;align-items:center;position:relative;overflow:hidden;color:var(--gold);text-align:center;}
+    .hero__bg{position:absolute;inset:0;background-image: radial-gradient(circle, rgba(255,215,0,0.06), transparent 30%), url('https://images.unsplash.com/photo-1601121141945-2ec10c9b4726?q=80&w=1600&auto=format&fit=crop');background-size:cover;background-position:center;transform:translateZ(0);will-change:transform;}
+    .hero__overlay{position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.45));}
+    .hero-inner{position:relative;z-index:5;padding:80px 20px}
+    .hero h1{font-size:clamp(28px,6vw,56px);margin-bottom:12px;font-weight:800;text-shadow:0 6px 30px rgba(0,0,0,0.6)}
+    .hero p{max-width:760px;margin:0 auto 18px;color:rgba(255,235,170,0.95);font-size:18px}
+    .btn{display:inline-block;padding:12px 22px;border-radius:12px;font-weight:700;background:linear-gradient(90deg,var(--gold),var(--accent));color:#000;box-shadow:0 10px 30px rgba(181,142,0,0.18);transform:translateZ(0);}
+    .sparkles{pointer-events:none;position:absolute;inset:0;z-index:6;overflow:hidden}
+    .sparkles i{position:absolute;width:6px;height:6px;border-radius:50%;opacity:0.9;box-shadow:0 0 10px rgba(255,215,0,0.8);animation:rise linear infinite;}
+    @keyframes rise{from{transform:translateY(10vh) translateX(0) scale(.6);opacity:0}20%{opacity:1} to{transform:translateY(-120vh) translateX(60px) scale(1.2);opacity:0}}
+    section{padding:56px 0}
+    h2.section-title{text-align:center;color:var(--gold);margin-bottom:28px;font-size:26px;text-shadow:0 0 8px rgba(184,134,11,0.12)}
+    .grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,215,0,0.06);padding:14px;border-radius:12px;transition:transform .28s, box-shadow .28s;text-align:center;}
+    .card:hover{transform:translateY(-8px);box-shadow:0 18px 50px rgba(0,0,0,0.6)}
+    .card img{width:100%;height:220px;object-fit:cover;border-radius:8px;margin-bottom:12px}
+    .price{color:var(--gold);font-weight:700;margin:8px 0}
+    footer{padding:28px 0;text-align:center;border-top:1px solid rgba(255,215,0,0.03);color:var(--muted)}
+    @media(max-width:900px){
+      .hero-inner{padding:60px 20px}
+    }
+  </style>
+</head>
+<body>
+  <header role="banner">
+    <div class="container nav">
+      <div class="brand">✨ Sparkles Bangles</div>
+      <nav class="menu">
+        <a href="#new-arrivals">New</a>
+        <a href="#collections">Collections</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero__bg" id="heroBg"></div>
+      <div class="hero__overlay"></div>
+      <div class="hero-inner container">
+        <h1>Handcrafted Bangles — Made by Artisans</h1>
+        <p>Each piece is lovingly forged, textured, and polished by hand. Choose your favorite collection and shine with style.</p>
+        <a class="btn" href="#collections">Explore Collections</a>
+      </div>
+      <div class="sparkles" id="sparkles"></div>
+    </section>
+
+    <!-- New Arrivals -->
+    <section id="new-arrivals" class="container">
+      <h2 class="section-title">New Arrivals</h2>
+      <div class="grid">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1608222351218-7f4b3f092ff0?q=80&w=800&auto=format&fit=crop" alt="Gold plated artisan bangle" loading="lazy">
+          <h3>Golden Glow</h3>
+          <p class="price">₹1,499</p>
+          <p>Hand-textured gold-plated brass. Limited runs — each piece slightly unique.</p>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1617201925788-59ff6c2e9a6e?q=80&w=800&auto=format&fit=crop" alt="Stone-studded bangles" loading="lazy">
+          <h3>Stone Elegance</h3>
+          <p class="price">₹1,899</p>
+          <p>Festive stone-studded set — hand-set cubic zirconia with soldered bezels for longevity.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Collections -->
+    <section id="collections" class="container">
+      <h2 class="section-title">Featured Collections</h2>
+      <div class="grid">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1620912189860-9f8ad788b771?q=80&w=800&auto=format&fit=crop" alt="Festive collection" loading="lazy">
+          <h3>Festive Vibes</h3>
+          <p>Bold textures and gleaming finishes for celebrations.</p>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1622206558180-6c2b69a0e4c6?q=80&w=800&auto=format&fit=crop" alt="Everyday collection" loading="lazy">
+          <h3>Everyday Glow</h3>
+          <p>Sleek pieces designed for daily wear and comfort.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="container">
+      <h2 class="section-title">Contact & Orders</h2>
+      <form onsubmit="handleContact(event)" style="max-width:720px;margin:0 auto;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;border:1px solid rgba(255,215,0,0.04)">
+        <label for="email">Email</label>
+        <input id="email" type="email" required placeholder="you@example.com">
+        <label for="message">Message</label>
+        <textarea id="message" rows="5" required placeholder="Write your query or design idea..."></textarea>
+        <div style="margin-top:12px;display:flex;gap:10px;align-items:center">
+          <button class="btn" type="submit">Send Message</button>
+          <div style="color:var(--muted)">We respond within 2 business days.</div>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container">
+      <p><strong>✨ Sparkles Bangles ✨</strong> • Handcrafted in small batches • © 2025</p>
+    </div>
+  </footer>
+
+  <script>
+    const heroBg = document.getElementById('heroBg');
+    window.addEventListener('scroll', () => {
+      const sc = window.scrollY;
+      heroBg.style.transform = `translateY(${sc * -0.12}px) scale(1.03)`;
+    }, {passive:true});
+
+    const sparklesContainer = document.getElementById('sparkles');
+    function spawnSparkles(n=10){
+      for(let i=0;i<n;i++){
+        const el = document.createElement('i');
+        el.style.left = Math.random()*100 + '%';
+        el.style.top = (80 + Math.random()*20) + '%';
+        el.style.width = (4 + Math.random()*8) + 'px';
+        el.style.height = el.style.width;
+        el.style.animationDuration = (4 + Math.random()*6) + 's';
+        el.style.opacity = Math.random()*0.9;
+        sparklesContainer.appendChild(el);
+        setTimeout(()=>el.remove(), 12000);
+      }
+    }
+    setInterval(()=>spawnSparkles(6), 2500);
+    spawnSparkles(10);
+
+    function handleContact(e){
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const msg = document.getElementById('message').value;
+      if(!email || !msg){ alert('Please complete the form.'); return; }
+      alert('Thanks! Your message was received (demo). We will reply to ' + email);
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>
